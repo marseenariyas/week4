@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">New Advice</button>
+    <div id="myDiv"></div>
+
+    <script>
+        const btn=document.getElementById("btn")
+        const myDiv=document.getElementById("myDiv")
+
+        btn.addEventListener("click",()=>{
+            myDiv.textContent="Loadind Advice....."
+            advice()
+        })
+
+        async function advice(){
+            try{
+                const res=await fetch("https://api.adviceslip.com/advice")
+                const data=await res.json()
+                
+                const message=data.slip.advice
+                myDiv.textContent=`advice:${message}`
+                localStorage.setItem('lastAdvice',message)
+            }catch(error){
+                myDiv.textContent="Error fetching advice"
+                console.log(error)
+            }
+        }
+        window.addEventListener("DOMContentLoaded",()=>{
+           const lastAdvice= localStorage.getItem('lastAdvice',message)
+           console.log(lastAdvice)
+           if(lastAdvice){
+            myDiv.textContent=`lastAdvice:${lastAdvice}`
+           }else{
+            myDiv.textContent="loading...."
+
+           }
+        })
+          
+
+    </script>
+
+
+</body>
+</html>
