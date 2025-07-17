@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="word">hellooo</p>
+    <script>
+        var a=10;
+        window.a===10;
+    console.log(a);
+    let para=document.getElementById("word");
+    console.log(para.innerText);
+
+    var b=15;
+    console.log(window.b);
+    console.log(this);
+    window.alert("alerttt");
+    let reply=confirm("yes or no");
+    console.log(reply);
+
+
+    function scrollToTop(){
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behaviour: "smooth"
+        });
+
+        }
+
+        console.log(this);
+        window.localStorage.setItem("name","marseena");
+    
+    </script>
+</body>
+</html>
