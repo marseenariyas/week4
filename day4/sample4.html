@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="passwordinput" type="text"placeholder="typing"/>
+    <button id="btnshow">show</button>
+
+    <script>
+        const passwordinput=document.getElementById("passwordinput");
+        const btnshow=document.getElementById("btnshow");
+
+        btnshow.addEventListener("click",()=>{
+            if(passwordinput.type==="password"){
+                passwordinput.type="text"
+                btnshow.textContent="Hide"
+            }else{
+                passwordinput.type="password";
+                btnshow.textContent="show";
+
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed back Form</title>
+    <style>
+        body{
+            font-family: Arial;
+            padding: 20px;
+         
+        }
+        div{
+            width: 200px;
+            height: 200px;;
+            //background-color: blueviolet;
+        }
+    </style>
+</head>
+<body> 
+   
+        <input type="text" id="input" placeholder="typing"/>
+        <p id="para"></p>
+        <button id="btn">clickme</button>
+    
+    <script>
+        
+        (function (){
+            alert("welcome");
+        }) ();
+
+       
+
+         function trottled(func,delay){
+            let inThrottle=false;
+            return function(...arg){
+                if(!inThrottle){
+                    func.apply(this.arg);
+                    inThrottle=true;
+                    setTimeout(()=>inThrottle=false,delay);
+                }
+            };
+        }
+        
+        function debonced(func,delay){
+            let timer;
+            return function(){
+                clearTimeout(timer);
+                timer=setTimeout(()=>{
+                    func();
+                },delay);
+            };
+        }
+
+        function typed(){
+            para.textContent=input.value
+        }
+        const typing=debonced(typed(),3000);
+
+        function senToserver(event){
+            return new Promise((resolve)=>{
+                setTimeout(()=>{
+                    console.log("Event Done");
+                    resolve();
+                },1000);
+            });
+        }
+
+        function handling(event,callback){
+            setTimeout(()=>{
+                console.log("Event send");
+                callback();
+            },1000);
+        }
+
+        async function handleSend(){
+            if(2){}
+        }
+
+
+       
+        const feedbackCounter=(function(){
+            let=count;
+              return function(){
+               count++;
+                document.getElementById("countBox").textContent=`FeedBack submitted:${count}`;
+            };
+       }) ();
+        const input=document.getElementById("input");
+        const div=document.getElementById("div");
+        const btn=document.getElementById("btn");
+        const para=document.getElementById("para");
+
+
+         btn.addEventListener("click",()=>{
+            console.log("botton clicked");
+            alert("botton clicked");
+         });
+         input.addEventListener("input",typing)
+           
+         
+        
+        
+    </script>
+    
+</body>
+</html>

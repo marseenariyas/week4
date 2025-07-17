@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input"placeholder/>
+    <button id="setid">set</button>
+    <button id="getid">get</button>
+    <button id="remove">remove</button>
+    <script>
+      const input=document.getElementById("input") ;
+      const setid=document.getElementById("setid");
+      const getid=document.getElementById("getid");
+      const remove=document.getElementById("remove");
+
+        
+         setid.addEventListener("click",()=>{
+            console.log("marseena");
+            const value=input.value;
+            localStorage.setItem("my value",value);
+            alert("saved")
+         });
+
+         getid.addEventListener("click",()=>{
+            const stored=localStorage.getItem("my value");
+            if(stored){
+                input.value=stored;
+                alert("marseena");
+            }else{
+                alert("invalid name");
+            }
+         });
+
+         remove.addEventListener("click",()=>{
+            localStorage.removeItem("my value");
+            alert("removed");
+            input.value="";
+         });
+        console.log(this)
+
+        
+        
+    </script>
+    
+</body>
+</html>
